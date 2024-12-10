@@ -1,4 +1,4 @@
-const client = require('../config/db');
+const { client } = require('../config/db');
 const bcrypt = require('bcryptjs');
 
 // Registers a new user in the database
@@ -12,6 +12,12 @@ const registerUser = async (name, email, password) => {
     RETURNING id, name, email, role;
   `;
   const values = [name, email, hashedPassword];
+
+  // Verifica se o client está corretamente inicializado
+  if (!client || typeof client.query !== 'function') {
+    console.error('Client not initialized correctly.');
+    throw new Error('Database client is not properly initialized');
+  }
 
   try {
     const result = await client.query(query, values);
