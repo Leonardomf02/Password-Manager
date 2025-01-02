@@ -8,12 +8,13 @@ const register = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    const user = await registerUser(name, email, password);
-    res.status(201).json({ user });
+    await registerUser(name, email, password, res);
   } catch (error) {
-    res.status(500).json({ message: 'Error registering user', error });
+    console.error('Error in register controller:', error.message || error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
+
 
 // User login and JWT token generation
 const login = async (req, res) => {

@@ -82,8 +82,6 @@ const CreatePassword = ({ onClose, onPasswordCreated }) => {
               </div>
             </div>
           </div>
-
-          {/* Password and URL */}
           <div className="row g-3 mb-3">
             <div className="col-md-6">
               <div className="form-floating">
@@ -117,8 +115,6 @@ const CreatePassword = ({ onClose, onPasswordCreated }) => {
               </div>
             </div>
           </div>
-
-          {/* Notes */}
           <div className="form-floating mb-3">
             <textarea
               className="form-control"
@@ -148,8 +144,6 @@ const CreatePassword = ({ onClose, onPasswordCreated }) => {
               Require master password to reveal password
             </label>
           </div>
-
-          {/* Buttons */}
           <div className="d-flex gap-3">
             <button type="submit" className="btn btn-primary w-50">
               Save
